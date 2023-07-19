@@ -1,23 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import {UserComponent} from './component/user_component';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <UserComponent name={'Rick Sanchez'} id={1} status={'Alive'} species={'Human'} gender={'Male'} photo={'https://rickandmortyapi.com/api/character/avatar/1.jpeg'}/>
+        <UserComponent name={'Summer Smith'} id={3} status={'Alive'} species={'Human'} gender={'Female'} photo={'https://rickandmortyapi.com/api/character/avatar/4.jpeg'}/>
+        <UserComponent name={'Morty Smith'} id={2} status={'Alive'} species={'Human'} gender={'Male'} photo={'https://rickandmortyapi.com/api/character/avatar/2.jpeg'}/>
     </div>
   );
 }
