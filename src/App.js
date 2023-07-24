@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Posts from "./component/Posts/Posts";
+import {Launches} from './component/Launches/Launches';
 
 
 function App() {
   return (
     <>
-<Posts/>
+        <Launches/>
     </>
   );
 }
