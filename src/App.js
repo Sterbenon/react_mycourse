@@ -1,22 +1,32 @@
 import React, {useEffect, useState} from 'react';
-import {Users} from './Components/UserComponents/Users/Users'
+import {Users} from './Components/UserComponents/Users/Users';
+import getUsers from "./Components/UserComponents/Users/user.service";
 
-const App = () => {
-    let [users, setUsers]=useState();
-    useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(value => setUsers(value))
 
-    })
+function App()  {
+
+
+    const chooseUser= ({userId}) => {
+        const [getPost, setGetPost]= useState([]);
+        useEffect(()=>{getUsers().then(value =>  setGetPost(value.data))
+        }, [])
+    };
+
+let [users, setUsers]=useState([]);
+
+useEffect(()=> {getUsers().then(value => setUsers(value.data))},[])
 
     return (
         <div>
-            <Users/>
+            {
+                users.map(value => <Users key={value.id} item={value} chooseUser={chooseUser}/>)
+            }
+
+
 
         </div>
     );
-};
+}
 
 export default App;
 //
